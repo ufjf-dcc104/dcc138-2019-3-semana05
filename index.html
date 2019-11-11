@@ -9,6 +9,26 @@
 <body>
     <h1>Semana 05</h1>
     <canvas></canvas>
-    <script></script>
+    <script>
+    var canvas = document.querySelector("canvas");
+    canvas.width = 600;
+    canvas.height = 480;
+    var ctx = canvas.getContext("2d");
+    var dt, anterior = 0;
+
+    function passo(t) {
+        dt = (t - anterior)/1000;
+        ctx.fillStyle = "green";
+        ctx.fillRect(0,0, canvas.width, canvas.height);
+        ctx.fillStyle = "yellow";
+        ctx.font = "20px sans-serif";
+        ctx.fillText((1/dt).toFixed(2), 10, 20);
+
+        requestAnimationFrame(passo);
+        anterior = t;
+    }
+
+    requestAnimationFrame(passo);
+    </script>
 </body>
 </html>
