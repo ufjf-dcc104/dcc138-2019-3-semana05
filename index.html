@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Semana 05</title>
+    <script src="InputController.js" ></script>
 </head>
 <body>
     <h1>Semana 05</h1>
@@ -15,6 +16,7 @@
     canvas.height = 480;
     var ctx = canvas.getContext("2d");
     var dt, anterior = 0;
+    var input = new InputController();
 
     function passo(t) {
         dt = (t - anterior)/1000;
