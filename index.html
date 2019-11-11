@@ -28,6 +28,7 @@
         {nome: "d", codigo: 68},
         {nome: "s", codigo: 83},
     ]);
+    input.setupJoysticks();
 
     function passo(t) {
         dt = (t - anterior)/1000;
@@ -36,6 +37,9 @@
         ctx.fillStyle = "yellow";
         ctx.font = "20px sans-serif";
         ctx.fillText((1/dt).toFixed(2), 10, 20);
+        input.updateJoysticks();
+
+
         var l = 2;
         for (var nome in input.teclas) {
 
@@ -43,8 +47,21 @@
             ctx.fillText(`${nome}: ${input.teclas[nome]}`, 10, 20*l++);
             
         }
-
-
+        var l = 2;
+        var jn = 1;
+        for (var j in input.joysticks){
+            var joystick = input.joysticks[j];
+            for (var bid in joystick.buttons) {
+                
+                var button = joystick.buttons[bid];
+                ctx.fillText(`b${bid}: ${button.pressed}`, 150*jn, 20*l++);
+                
+            }
+            for (var aid in joystick.axes) {
+                var axis = joystick.axes[aid];
+                ctx.fillText(`a${aid}: ${axis}`, 150*jn, 20*l++);
+            }
+        }        
         requestAnimationFrame(passo);
         anterior = t;
     }
