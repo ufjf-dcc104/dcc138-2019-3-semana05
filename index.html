@@ -23,6 +23,10 @@
         {nome: "cima", codigo: 38},
         {nome: "direita", codigo: 39},
         {nome: "baixo", codigo: 40},
+        {nome: "a", codigo: 65},
+        {nome: "w", codigo: 87},
+        {nome: "d", codigo: 68},
+        {nome: "s", codigo: 83},
     ]);
 
     function passo(t) {
@@ -32,6 +36,14 @@
         ctx.fillStyle = "yellow";
         ctx.font = "20px sans-serif";
         ctx.fillText((1/dt).toFixed(2), 10, 20);
+        var l = 2;
+        for (var nome in input.teclas) {
+
+            var tecla = input.teclas[nome];
+            ctx.fillText(`${nome}: ${input.teclas[nome]}`, 10, 20*l++);
+            
+        }
+
 
         requestAnimationFrame(passo);
         anterior = t;

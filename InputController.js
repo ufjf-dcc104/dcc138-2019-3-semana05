@@ -16,6 +16,7 @@ InputController.prototype.setupKeyboard = function(novasTeclas){
         var nome = that.nomes[e.keyCode];
         if(nome){
             that.teclas[nome] = true;
+            e.preventDefault();
         }
          
      });
@@ -23,6 +24,7 @@ InputController.prototype.setupKeyboard = function(novasTeclas){
         var nome = that.nomes[e.keyCode];
         if(nome){
             that.teclas[nome] = false;
+            e.preventDefault();
         }
          
      });
