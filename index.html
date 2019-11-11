@@ -17,6 +17,13 @@
     var ctx = canvas.getContext("2d");
     var dt, anterior = 0;
     var input = new InputController();
+    input.setupKeyboard([
+        {nome: "espaço", codigo: 32},
+        {nome: "esquerda", codigo: 37},
+        {nome: "cima", codigo: 38},
+        {nome: "direita", codigo: 39},
+        {nome: "baixo", codigo: 40},
+    ]);
 
     function passo(t) {
         dt = (t - anterior)/1000;
